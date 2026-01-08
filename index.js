@@ -29,14 +29,9 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 // Connect MongoDB
-mongoose
-    .connect(process.env.MONGO, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => {
-        console.log('✅ MongoDB is Connected')
-    })
-    .catch(err => {
-        console.error('❌ MongoDB Connection Error:', err)
-    })
+mongoose.connect(process.env.MONGO)
+    .then(() => console.log('✅ MongoDB Connected'))
+    .catch(err => console.error('❌ MongoDB Connection Error:', err))
 
 
 
