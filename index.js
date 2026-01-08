@@ -19,7 +19,10 @@ const app = express()
 
 // Middleware
 app.use(cors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+    origin: [
+        'http://localhost:5173',
+        'https://doc-time-iota.vercel.app'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
 }))
 app.use(express.json())
@@ -27,7 +30,7 @@ app.use(express.urlencoded({ extended: true }))
 
 // Connect MongoDB
 mongoose
-    .connect(process.env.MONGO)
+    .connect(process.env.MONGO, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         console.log('✅ MongoDB is Connected')
     })
