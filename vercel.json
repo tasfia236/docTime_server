@@ -3,18 +3,13 @@
     "builds": [
         {
             "src": "index.js",
-            "use": "@vercel/node",
-            "config": {
-                "includeFiles": [
-                    "**"
-                ]
-            }
+            "use": "@vercel/node"
         }
     ],
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "index.js",
+            "dest": "/index.js",
             "methods": [
                 "GET",
                 "POST",
@@ -23,11 +18,7 @@
                 "DELETE",
                 "HEAD",
                 "OPTIONS"
-            ],
-            "headers": {
-                "Access-Control-Allow-Origin": "*"
-            },
-            "status": 200
+            ]
         }
     ]
 }

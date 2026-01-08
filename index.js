@@ -13,7 +13,7 @@ import userRoutes from './routes/user.routes.js'
 import slotRoutes from './routes/slot.routes.js'
 import chatRoutes from './routes/chatbot.routes.js'
 
-const port = process.env.PORT || 5000
+const port = 5000
 const app = express()
 
 
